@@ -1,0 +1,65 @@
+h1 {
+      border-bottom: 3px dashed black;
+      display: table;
+     
+} 
+.bigger {
+  transform: scale(1.2);
+  box-shadow: 5px 5px 20px goldenrod;
+
+}
+.babu {
+    border-radius: 50%;
+    box-shadow: 10px 10px 10px rgb(104, 100, 100)
+}
+
+.babu1 {
+    border-radius: 50%;
+    box-shadow: 10px 10px 10px rgb(104, 100, 100)
+}
+
+.papa {
+    border-radius: 50%;
+    box-shadow: 10px 10px 10px rgb(104, 100, 100)
+}
+
+.papa1 {
+    border-radius: 50%;
+    box-shadow: 10px 10px 10px rgb(104, 100, 100);
+
+}
+
+.babu:hover {
+    cursor:pointer;
+    transform: scale(1.2);
+}
+.babu1:hover {
+    cursor:pointer;
+    transform: scale(1.2);
+}
+
+.papa:hover {
+    cursor:pointer;
+    transform: scale(1.2);
+
+}
+
+.papa1:hover {
+    cursor:pointer;
+    transform: scale(1.2);
+}
+
+p {
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: medium;
+    color: gold;
+}
+body{
+    background-image: url("premium-gold-lines-abstract-black-background_277819-3815.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  h1{
+    color: gold;
+  }

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Page</title>
+    <style>
+        body{
+            background-image: url("k1.jpg");
+            background-size: cover;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        #totalCost {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        input[type="button"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        h2{
+            color: white;
+        }
+        h3{
+            color: white;
+        }
+        tr.selected-item td {
+        color: white;
+        }
+    </style>
+</head>
+<body>
+    <h2>Selected Items:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Cost</th>
+            </tr>
+        </thead>
+        <tbody id="selectedItemsList"></tbody>
+    </table>
+    <h3 id="totalCost"></h3>
+
+    <script>
+        var selectedItemsJSON = localStorage.getItem("selectedItems");
+        var selectedItems = JSON.parse(selectedItemsJSON);
+
+        var selectedItemsList = document.getElementById("selectedItemsList");
+        var totalCost = 0;
+        for (var i = 0; i < selectedItems.length; i++) {
+            var item = selectedItems[i];
+            var row = document.createElement("tr");
+            row.classList.add("selected-item");
+            var itemNameCell = document.createElement("td");
+            var itemCostCell = document.createElement("td");
+
+            itemNameCell.textContent = item.name;
+            itemCostCell.textContent = "₹" + item.cost;
+
+            row.appendChild(itemNameCell);
+            row.appendChild(itemCostCell);
+            selectedItemsList.appendChild(row);
+
+            totalCost += item.cost;
+        }
+
+        var totalCostElement = document.getElementById("totalCost");
+        totalCostElement.textContent = "Total Cost: ₹" + totalCost.toFixed(2);
+    </script>
+    <br>
+    <a href="payment.html"><input type="button" value="Pay Now"></a><a href="project.html"> <input type="button" value="Cancel"  class="back"> </a>
+</body>
+</html>

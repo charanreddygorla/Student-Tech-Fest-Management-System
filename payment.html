@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url("k4.jpg");
+      background-size: cover;
+    }
+
+    .container {
+      background-color: wheat;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .payment-option {
+      margin-bottom: 20px;
+    }
+
+    .payment-option label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .payment-option input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    .payment-option img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    .payment-details {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .payment-details.active {
+      display: block;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
+
+    .form-group select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
+
+    .form-group .button {
+      background-color: #4caf50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Select Payment Method</h2>
+    <div class="payment-option">
+      <label>
+        <input type="radio" name="payment-method" value="phonepe" onclick="togglePaymentDetails('phonepe')">
+        <img src="https://tse2.mm.bing.net/th?id=OIP.suGvdvu-m8RGVEuPpxs3sQHaGT&pid=Api&P=0&h=180" alt="PhonePe">
+        PhonePe
+      </label>
+      <div id="phonepe-details" class="payment-details">
+        <div class="form-group">
+          <label for="phonepe-number">Phone Number</label>
+          <input type="text" id="p" required>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Make Payment" class="button" onclick="openPaymentSuccessfulPage()">
+        </div>
+      </div>
+    </div>
+    <div class="payment-option">
+      <label>
+        <input type="radio" name="payment-method" value="googlepay" onclick="togglePaymentDetails('googlepay')">
+        <img src="https://tse1.mm.bing.net/th?id=OIP.A6i0la6VQqhNQ2_c7TzaYAAAAA&pid=Api&P=0&h=180" alt="Google Pay">
+        Google Pay
+      </label>
+      <div id="googlepay-details" class="payment-details">
+        <div class="form-group">
+          <label for="googlepay-number">Mobile Number</label>
+          <input type="text" id="g" required>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Make Payment" class="button" onclick="openPaymentSuccessfulPage()">
+        </div>
+      </div>
+    </div>
+    <div class="payment-option">
+      <label>
+        <input type="radio" name="payment-method" value="creditcard" onclick="togglePaymentDetails('creditcard')">
+        <img src="https://clipartcraft.com/images/credit-card-logo-generic-1.png" alt="Credit Card">
+        Credit Card
+      </label>
+      <div id="creditcard-details" class="payment-details">
+        <div class="form-group">
+          <label for="creditcard-number">Card Number</label>
+          <input type="text" id="creditcard-number" required>
+        </div>
+        <div class="form-group">
+          <label for="creditcard-name">Cardholder Name</label>
+          <input type="text" id="creditcard-name" required>
+        </div>
+        <div class="form-group">
+          <label for="creditcard-cvv">CVV</label>
+          <input type="password" id="creditcard-cvv" required>
+        </div>
+        <div class="form-group">
+          <label for="creditcard-expiry">Expiry Date</label>
+          <select id="creditcard-expiry" required>
+            <option value="">Select</option>
+            <option value="01">01 - January</option>
+            <option value="02">02 - February</option>
+            <option value="03">03 - March</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Make Payment" class="button" onclick="openPaymentSuccessfulPage()">
+        </div>
+      </div>
+    </div>
+    <div class="payment-option">
+      <label>
+        <input type="radio" name="payment-method" value="debitcard" onclick="togglePaymentDetails('debitcard')">
+        <img src="https://tse3.mm.bing.net/th?id=OIP.fACrpCJWY9SnykagYcd1RwHaE_&pid=Api&P=0&h=180" alt="Debit Card">
+        Debit Card
+      </label>
+      <div id="debitcard-details" class="payment-details">
+        <div class="form-group">
+          <label for="debitcard-number">Card Number</label>
+          <input type="text" id="debitcard-number" required>
+        </div>
+        <div class="form-group">
+          <label for="debitcard-name">Cardholder Name</label>
+          <input type="text" id="debitcard-name" required>
+        </div>
+        <div class="form-group">
+          <label for="debitcard-cvv">CVV</label>
+          <input type="password" id="debitcard-cvv" required>
+        </div>
+        <div class="form-group">
+          <label for="debitcard-expiry">Expiry Date</label>
+          <select id="debitcard-expiry" required>
+            <option value="">Select</option>
+            <option value="01">01 - January</option>
+            <option value="02">02 - February</option>
+            <option value="03">03 - March</option>
+          </select>
+        </div>
+        <div class="form-group">
+         <input type="submit" value="Make Payment" class="button" onclick="openPaymentSuccessfulPage()">
+        </div>
+      </div>
+    </div>
+    <div class="payment-option">
+      <label>
+        <input type="radio" name="payment-method" value="netbanking" onclick="togglePaymentDetails('netbanking')">
+        <img src="https://tse1.mm.bing.net/th?id=OIP.pTS7ICEONldCDZT0U4SF-AHaC_&pid=Api&P=0&h=180" alt="Netbanking">
+        Netbanking
+      </label>
+      <div id="netbanking-details" class="payment-details">
+        <div class="form-group">
+          <label for="netbanking-bank">Select Bank</label>
+          <select id="netbanking-bank" required>
+            <option value="">Select</option>
+            <option value="bank1">Bank 1</option>
+            <option value="bank2">Bank 2</option>
+            <option value="bank3">Bank 3</option>
+                  </select>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Make Payment" class="button" onclick="openPaymentSuccessfulPage()">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function togglePaymentDetails(paymentMethod) 
+    {
+      var paymentDetails = document.getElementsByClassName("payment-details");
+      for (var i = 0; i < paymentDetails.length; i++) 
+      {
+        paymentDetails[i].classList.remove("active");
+      }
+  
+      var paymentMethodDetails = document.getElementById(paymentMethod + "-details");
+      paymentMethodDetails.classList.add("active");
+    }
+  
+    function openPaymentSuccessfulPage() 
+    {
+      var activePaymentDetails = document.querySelector(".payment-details.active");
+      var formFields = activePaymentDetails.querySelectorAll("input[type='text'], input[type='password'], select");
+  
+      var isFieldEmpty = false;
+      for (var i = 0; i < formFields.length; i++) 
+      {
+        if (formFields[i].value === "") 
+        {
+          isFieldEmpty = true;
+          if (!formFields[i].nextElementSibling || formFields[i].nextElementSibling.className !== "error-message") 
+          {
+            var errorMessage = document.createElement("div");
+            errorMessage.className = "error-message";
+            errorMessage.textContent = "This field is required.";
+            errorMessage.style.color = "red";
+            formFields[i].parentNode.insertBefore(errorMessage, formFields[i].nextSibling);
+          }
+        } 
+        else
+        {
+          if (formFields[i].nextElementSibling && formFields[i].nextElementSibling.className === "error-message") 
+          {
+            formFields[i].nextElementSibling.remove();
+          }
+        }
+      }
+      if (!isFieldEmpty) 
+      {
+        var newWindow = window.open("success.html", "_blank", "width=400,height=200,top=0,left=0");
+        newWindow.focus();
+      }
+    }
+  </script>
+</body>
+</html>

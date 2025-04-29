@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Sports.css">
+    <script>
+        var selectedItems = [];
+        function toggleImageSize(element) {
+            element.classList.toggle("bigger");
+        }
+        function addItem(itemName, itemCost) {
+            selectedItems.push({ name: itemName, cost: itemCost });
+        }
+        function goToNextPage() {
+            var selectedItemsJSON = JSON.stringify(selectedItems);
+            localStorage.setItem("selectedItems", selectedItemsJSON);
+            window.location.href = "sports2.html";
+        }
+    </script>
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <a href="sports0.html"> <input type="button" value="Back"  class="back"> </a><button class="proceed-button" onclick="goToNextPage()" >Proceed to Payment</button>
+    <center><h1>CHOOSE THE SPORT</h1></center> 
+    
+    <br>
+    <br>
+    <br>
+
+        <pre>                                    <img class="a" src="img 2.jpg" height="200" width="200" onclick="toggleImageSize(this); addItem('Cricket', 500)">            <img class="a" src="img1.jpg" height="200" width="200" onclick="toggleImageSize(this); addItem('Football', 500)">            <img class="a" src="img 3.jpg" height="200" width="200" onclick="toggleImageSize(this); addItem('Badminton', 500)">            <img class="a" src="img 4.jpg" height="200" width="200" onclick="toggleImageSize(this); addItem('Hockey', 200)">
+        </pre>
+
+ 
+
+    <pre> <p>                                                                         Cricket                                                  Football                                                Badminton                                                       Hockey </p> </pre>
+     
+
+
+        <pre>                                  <img class="a" src="img 5.jpg" height="200" width="200" onclick="toggleImageSize(this); addItem('Tennis', 250)">            <img class="a" src="img 6.jpg" height="200" width="200" onclick="toggleImageSize(this); addItem('TableTennis', 159)">            <img class="a" src="img 7.jpg" height="200" width="200" onclick="toggleImageSize(this); addItem('Chess', 79)">            <img class="a" src="img 8.jpg" height="200" width="200" onclick="toggleImageSize(this); addItem('BasketBall', 149)"></pre>
+    <pre> <p>                                                                       Tennis                                                   TableTennis                                               Chess                                                          BasketBall</p></pre> 
+
+    
+
+    <style>
+        h1 {
+            border-bottom: 3px dashed gold;
+            display: table;
+        }
+
+        body {
+            background-color: rgb(255, 255, 255);
+        }
+
+        .proceed-button {
+            padding: 10px 20px;
+            background-color: gold;
+            color: rgb(0, 0, 0);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            margin-left: 1200px;
+        }
+
+        .proceed-button:hover {
+            background-color: goldenrod;
+        }
+        .back{
+    margin-left: 30px;
+    height: 40px;
+    width: 85px;
+    background-color:gold ;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+
+  }
+    </style>
+</body>
+</html>

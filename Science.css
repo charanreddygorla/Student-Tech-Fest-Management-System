@@ -1,0 +1,36 @@
+h1 {
+  border-bottom: 3px dashed black;
+  display: table;
+} 
+
+.a, .b, .c, .d, .e, .f 
+{
+  box-shadow: 2px 2px 10px gray;
+}
+.a:hover, .b:hover, .c:hover, .d:hover, .e:hover, .f:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.bigger {
+  transform: scale(1.2);
+  box-shadow: 5px 5px 20px goldenrod;
+
+}
+
+
+p {
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: medium;
+  color: gold;
+
+}
+body{
+  background-image: url("premium-gold-lines-abstract-black-background_277819-3815.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1{
+  color: gold;
+}

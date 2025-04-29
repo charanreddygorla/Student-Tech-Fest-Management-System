@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="days.css">
+</head>
+<style>
+    *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --accent-color: goldenrod;
+    --heading-font-family: 'Poppins', sans-serif;
+    --body-font-family: 'Lato', sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    background-image: url("19852263_6191107.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--body-font-family);
+  }
+  
+  .price-comparison {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    margin: 1rem;
+  }
+  
+  .price-column {
+    background-color: white;
+    box-shadow: 0 7px 30px rgba(52, 31, 97, 0.1);
+    padding: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 275px;
+    border-radius: 8px;
+  }
+  
+  .price-column.popular {
+    position: relative;
+    background-color: var(--accent-color);
+    box-shadow: 0 7px 30px rgba(52, 13, 135, 0.3);
+    color: white;
+    margin-top: -1.5rem;
+    padding-top: 3.5rem;
+    margin-bottom: -1.5rem;
+    padding-bottom: 3.5rem;
+  }
+  
+  .price-column:first-child {
+    border-top-right-radius: 0; 
+    border-bottom-right-radius: 0; 
+  }
+  
+  .price-column:last-child {
+    border-top-left-radius: 0; 
+    border-bottom-left-radius: 0; 
+  }
+  
+  .price-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--heading-font-family);
+    font-weight: bold;
+  }
+  
+  .price {
+    font-size: 3.5rem;
+    display: flex;
+  }
+  
+  .dollar-sign {
+    font-size: 1.5rem;
+    margin-top: .5rem;
+    margin-right: .25rem;
+  }
+  
+  .per-month {
+    font-size: .75rem;
+    align-self: flex-end;
+    margin-bottom: 1.1rem;
+    text-transform: uppercase;
+  }
+  
+  .plan-name {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-top: 1rem;
+    margin-bottom: 0;
+
+  }
+  
+  .divider {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .price-column.popular .divider {
+    background-color: rgba(255, 255, 255, .2);
+  }
+  
+  .feature {
+    display: flex;
+    align-items: center;
+    margin: .5rem;
+  }
+  
+  .feature img {
+    height: 1.1em;
+    width: 1.1em;
+    margin-right: .5rem;
+  }
+  
+  .feature.inactive {
+    color: #999;
+    text-decoration-line: line-through;
+  }
+  
+  .most-popular {
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    right: .5rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: var(--heading-font-family);
+  }
+ .cta {
+    border: none;
+    background-color: var(--accent-color);
+    color: white;
+    width: 100%;
+    padding: .75rem 1rem;
+    cursor: pointer;
+    font-family: var(--heading-font-family);
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: 3rem;
+    transition: 100ms;
+    transform: scale(1);
+  }
+  .price-column.popular .cta {
+    background-color: white;
+    color: var(--accent-color);
+  }
+  
+  .cta:hover, .cta:focus {
+    transform: scale(1.1);
+  }
+  * {
+      font-family: Raleway;
+  }
+  
+  .side-links {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  
+  .side-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+    color: white;
+    width: 180px;
+    padding: 10px 0;
+    border-radius: 10px;
+  }
+  
+  .side-link-youtube {
+    background-color: red;
+  }
+  
+  .side-link-twitter {
+    background-color: #1DA1F2;
+  }
+  
+  .side-link-github {
+    background-color: #6e5494;
+  }
+  
+  .side-link-text {
+    margin-left: 10px;
+    font-size: 18px;
+  }
+  
+  .side-link-icon {
+    color: white;
+    font-size: 30px;
+  }
+  .back{
+    margin-bottom: 700px;
+    margin-left: 30px;
+    height: 40px;
+    width: 85px;
+    background-color:gold ;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+
+  }
+</style>
+<body>
+  <a href="project.html"> <input type="button" value="Back"  class="back"> </a>
+    <section class="price-comparison">
+        <div class="price-column">
+          <div class="price-header">
+            <div class="price">
+              <div class="dollar-sign"></div>
+              Day-1
+              <div class="per-month"></div>
+            </div>
+            <div class="plan-name"> (Chemistry-Workshop)</div>
+          </div>
+          <div class="divider"></div>
+          <div class="feature">
+            <p>   <b>Organic Chemistry Exploration</b><br>Time:  (09:30 A.M - 11:00 P.M)</p>
+
+          </div>
+          <div class="feature">
+            <p>   <b>Study on Atoms and Nucleus</b><br>Time:  (3:00 P.M - 05:00 P.M)</p>
+          </div>
+          
+        
+        </div>
+        <div class="price-column popular">
+          <div class="most-popular"></div>
+          <div class="price-header">
+            <div class="price">
+              <div class="dollar-sign"></div>
+              Day-2 
+              <div class="per-month"></div>
+            </div>
+            <div class="plan-name">(Physics-Workshop)</div>
+          </div>
+          <div class="divider"></div>
+          <div class="feature">
+         <p>   <b>Auto-Expo</b><br>Time:  (10:00 A.M - 11:00 P.M)</p>
+
+          </div>
+          <div class="feature">
+            <p>   <b>Study on AeroSpace</b><br>Time:  (07:00 A.M - 01:00 P.M)</p>
+          </div>
+          
+          <a href="Science.html"> <button class="cta">NEXT</button></a>
+        </div>
+        <div class="price-column">
+          <div class="price-header">
+            <div class="price">
+              <div class="dollar-sign"></div>
+              Day-3 
+              <div class="per-month"></div>
+            </div>
+            <div class="plan-name">(Biology-Workshop)</div>
+          </div>
+          <div class="divider"></div>
+          <div class="feature">
+            <p>   <b>Study on Tissues and Cells</b><br>Time:  (10:00 A.M - 12:00 P.M)</p>
+          </div>
+          <div class="feature">
+            <p>   <b>Study on Bacteria and Virus</b><br>Time:  (03:00 P.M - 6:00 P.M)</p>
+          </div>
+        </div>
+      </section>
+ 
+</body>
+</html>

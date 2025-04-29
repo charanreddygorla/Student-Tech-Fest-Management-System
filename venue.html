@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Date and Venue</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: black;
+            margin-top: 200px;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
+        .event-info {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+        }
+
+        .event-info label {
+            font-weight: bold;
+        }
+
+        .event-info p {
+            margin: 10px 0;
+        }
+
+        #countdown {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+            color: white;
+        }
+    </style>
+    <script>
+        function updateCountdown() {
+            const eventDate = new Date('2023-07-11T18:00:00');
+
+            const currentDate = new Date();
+
+            const timeRemaining = eventDate - currentDate;
+
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = days + ' days, ' + hours + ' hours, ' + minutes + ' minutes, ' + seconds + ' seconds';
+        }
+        
+        setInterval(updateCountdown, 1000);
+    </script>
+</head>
+<body>
+    <h1>Event Date and Venue</h1>
+    <div class="event-info">
+        <label>Date:</label>
+        <p>July 10, 2023</p>
+        
+        <label>Venue:</label>
+        <p>Amrita Vishwa Vidyapeetham
+            <br>
+            Chennai Campus
+            <br>
+            337/1A, Vengal Village,
+            <br>
+            Thiruvallur Taluk & District - 601 103
+            <br>
+            Tamil Nadu, India
+            
+            </p>
+    </div>
+    <div id="countdown"></div>
+</body>
+</html>

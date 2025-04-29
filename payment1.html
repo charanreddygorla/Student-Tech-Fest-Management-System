@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment</title>
+  <link rel="stylesheet" href="home.html">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: rgb(0, 0, 0);
+      color: #fff;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+    }
+
+ 
+    .payment 
+    {
+      display: block;
+      width: 105%;
+      padding: 10px;
+      margin-top: 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Payment Page</h1>
+  <form onsubmit="payme()">
+    <label>Payment Method:</label>
+    <select id="pa">
+
+      <option>-- Select Payment Method --</option>
+      <option>Google Pay</option>
+      <option>PhonePe</option>
+      <option>Credit Card</option>
+      <option>Debit Card</option>
+      <option>Net Banking</option>
+    </select>
+    <input type="submit" class="payment" value="Pay Now">
+  </form>
+</body>
+<script>
+  function payme()
+{
+
+  var pay = document.getElementById("pa").value;
+  
+  if(pay =="-- Select Payment Method --")
+  {
+    alert("Please Select Some Payment Method");
+  }
+  else if(pay === "Credit Card")
+  {
+    open(payments.html);
+  }
+
+}
+</script>
+</html>

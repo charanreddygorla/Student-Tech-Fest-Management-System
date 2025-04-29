@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Cultural.css">
+    <script>
+      var selectedItems = [];
+
+      function toggleImageSize(element) {
+          element.classList.toggle("bigger");
+      }
+
+      function addItem(itemName, itemCost) {
+          selectedItems.push({ name: itemName, cost: itemCost });
+      }
+
+      function goToNextPage() {
+          var selectedItemsJSON = JSON.stringify(selectedItems);
+          localStorage.setItem("selectedItems", selectedItemsJSON);
+          window.location.href = "cultural2.html";
+      }
+    </script>
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="cultural0.html"> <input type="button" value="Back"  class="back"> </a>    <button onclick="goToNextPage()">Next</button>
+    <center>
+      <h1>CHOOSE THE CULTURAL EVENT</h1>    
+
+    </center> 
+    <br>
+    <br>
+    <br>
+    <br>
+      <pre>                                 <img class="babu" src="s1WhatsApp Image 2023-06-29 at 21.28.09.jpg" alt="loading"  height="200" width="200" onclick="toggleImageSize(this); addItem('Dancing', 199)">            <img class="babu1" src="s5WhatsApp Image 2023-06-29 at 21.28.10.jpg" alt="loading"  height="200" width="200" onclick="toggleImageSize(this); addItem('Singing', 199)">            <img class="papa" src="s3WhatsApp Image 2023-06-29 at 21.28.09.jpg" alt="loading"  height="200" width="200" onclick="toggleImageSize(this); addItem('Photography', 599)">           <img class="papa1" src="s2WhatsApp Image 2023-06-29 at 21.28.09.jpg" alt="loading"  height="200" width="200" onclick="toggleImageSize(this); addItem('Arts', 299)">
+      </pre>
+    <br>
+    <pre>
+      <p style="font-size: large;">                                                           Dancing                                            Singing                                              Photography                                                Arts</p>
+    </pre>
+    <br>
+</body>
+<style>
+  h1 {
+            border-bottom: 3px dashed gold;
+            display: table;
+        }
+  button{
+    margin-left: 1400px;
+    height: 40px;
+    width: 85px;
+    border-radius: 8px;
+    background-color:gold ;
+    color: black;
+    cursor: pointer;
+  }
+    
+  .back{
+    margin-left: 30px;
+    height: 40px;
+    width: 85px;
+    background-color:gold ;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+
+  }
+</style>
+</html>

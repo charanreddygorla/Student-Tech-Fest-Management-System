@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hashing with Linear Collisions</title>
+  <style>
+    
+    fieldset {
+      background-color: rgb(255, 255, 255);
+      border: 3px solid rgb(202, 179, 114);
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      margin-left: 100px;
+      margin-right: 100px;
+      margin-top: 50px;
+    }
+    
+    .ti {
+      text-align: center;
+      font-size: 50px;
+    }
+    th.ta {
+      width: 40px;
+      height: 40px;
+      text-align: center;
+    }
+    .arrayTextBox {
+      width: 40px;
+      height: 40px;
+      text-align: center;
+    }
+    button {
+      padding: 8px 12px;
+      font-size: 16px;
+      border-radius: 4px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+    .cs {
+      font-size: 20px;
+    }
+    .me{
+      font-size:xx-large; 
+    }
+    .bv{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            opacity:0.9;
+        }
+  </style>
+
+</head>
+<body>
+  <center>
+    <h1 class="ti">Hashing with Linear Collision</h1>
+  
+    <label for="inputValue"><span class="cs">Input Value:</span></label>
+    <input type="text" id="inputValue">
+  
+    <br><br>
+  
+    <label for="tableSize"><span class="cs">Table Size:</span></label>
+    <input type="text" id="tableSize"><button onclick="hashValue()" >Hash</button>
+  
+    <br><br>
+  
+    
+  
+    <br><br>
+  
+    <label for="removeValue"><span class="cs">Remove Value:</span></label>
+    <input type="text" id="removeValue">
+  
+    <br><br>
+  
+    <button onclick="removeValue()">Remove</button>
+  
+    <br><br>
+  
+    <label for="searchValue"><span class="cs">Search Value:</span></label>
+    <input type="text" id="searchValue">
+  
+    <br><br>
+  
+    <button onclick="searchValue()">Search</button>
+  
+    <br><br>
+
+    <span class="me">Hash Table</span> 
+
+    <div id="textBoxesContainer" class="ta"></div>
+  
+    <br><br>
+
+    <div id="output"></div>
+
+    <br><br>
+  </center>
+    <script>
+      
+      updateTextBoxes();
+    </script>
+</body>
+  <script> 
+    var hashTable;
+    function initializeTable(tableSize)
+    {
+      hashTable = new Array(tableSize);
+    }
+    function hashValue()
+     {
+      var inputField = document.getElementById("inputValue");
+      var tableSizeField = document.getElementById("tableSize");
+      var input = parseInt(inputField.value);
+      var tableSize = parseInt(tableSizeField.value);
+      
+      if (!hashTable) 
+      {
+        initializeTable(tableSize);
+      }
+      var hash = input % tableSize; 
+      var collisions = 0;
+      
+      while (hashTable[hash] !== undefined) 
+      {
+        collisions++;
+        hash++;
+        
+        if (hash >= tableSize) 
+        {
+          hash = 0;
+        }
+      }
+      
+      hashTable[hash] = input;
+      
+      var output = "Hashed value: " + input + "<br>";
+      output += "Collisions: " + collisions + "<br>";
+      output += "Hash table: " + hashTable.join(", ");
+      
+      document.getElementById("output").innerHTML = output;
+      
+      inputField.value = "";
+      
+      updateTextBoxes();
+    }
+    
+    function removeValue() 
+    {
+      var removeField = document.getElementById("removeValue");
+      var valueToRemove = parseInt(removeField.value);
+      
+      if (hashTable) 
+      {
+        var index = hashTable.indexOf(valueToRemove);
+        
+        if (index !== -1) 
+        {
+          hashTable[index] = undefined;
+          
+          var output = "Value " + valueToRemove + " removed from hash table.";
+          output += "<br>Hash table: " + hashTable.join(", ");
+          
+          document.getElementById("output").innerHTML = output;
+        }
+         else 
+        {
+          var output = "Value " + valueToRemove + " not found in hash table.";
+          
+          document.getElementById("output").innerHTML = output;
+        }
+      } 
+      else 
+      {
+        var output = "Hash table is empty.";
+        
+        document.getElementById("output").innerHTML = output;
+      }
+      
+      removeField.value = "";
+      
+      updateTextBoxes();
+    }
+    
+    function searchValue() 
+    {
+      var searchField = document.getElementById("searchValue");
+      var valueToSearch = parseInt(searchField.value);
+      
+      if (hashTable) 
+      {
+        var hash = valueToSearch % hashTable.length; 
+        var collisions = 0;
+        
+        while (hashTable[hash] !== valueToSearch) 
+        {
+          collisions++;
+          hash++;
+          
+          if (hash >= hashTable.length) 
+          {
+            hash = 0;
+          }
+          
+          if (hashTable[hash] === undefined || collisions >= hashTable.length) 
+          {
+            var output = "Value " + valueToSearch + " not found in hash table.";
+            
+            document.getElementById("output").innerHTML = output;
+            return;
+          }
+        }
+        
+        var output = "Value " + valueToSearch + " found in hash table at index " + hash + ".";
+        
+        document.getElementById("output").innerHTML = output;
+      } else {
+        var output = "Hash table is empty.";
+        
+        document.getElementById("output").innerHTML = output;
+      }
+      
+      searchField.value = "";
+    }
+    
+    function updateTextBoxes() 
+    {
+      var tableSize = hashTable.length;
+      var textBoxesContainer = document.getElementById("textBoxesContainer");
+      textBoxesContainer.innerHTML = "";
+      for (var i = 0; i < tableSize; i++)
+      {
+        var textBox = document.createElement("input");
+        textBox.type = "text";
+        textBox.className = "arrayTextBox";
+        textBox.disabled = true;
+        if (hashTable[i] !== undefined)
+        {
+          textBox.value = hashTable[i];
+        }
+        textBoxesContainer.appendChild(textBox);
+      }
+    }
+  </script>
+
+</html>

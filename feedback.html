@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback and Evaluation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: rgba(0, 0, 0, 0.863);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        textarea {
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: goldenrod;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #confirmation {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+        }
+
+        .hidden {
+            display: none;
+        }
+        p,label {
+            color: white;
+        }
+        h1 {
+            color:goldenrod;
+        }
+    </style>
+</head>
+<body>
+    <h1>Feedback and Evaluation</h1>
+    <form id="feedbackForm" onsubmit="submitForm(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" >
+        
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" >
+        
+        <label for="feedback">Feedback:</label>
+        <textarea id="feedback" name="feedback" rows="5"></textarea>
+        
+        <label for="rating">Rating:</label>
+        <select id="rating" name="rating">
+            <option value="0">Select a rating</option>
+            <option value="5">5 - Excellent</option>
+            <option value="4">4 - Good</option>
+            <option value="3">3 - Average</option>
+            <option value="2">2 - Below Average</option>
+            <option value="1">1 - Poor</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+    function submitForm(event)
+    {
+        event.preventDefault();
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var feedback = document.getElementById("feedback").value;
+        var rating = document.getElementById("rating").value;
+        if(name == "" || email ==""||feedback==""||rating==="Select a rating")
+        {
+            alert("Please Fill all the Fields");
+        }
+        else if(!email.includes("@")&&!email.includes(".com"))
+        {
+            alert("Please Enter a Valid Email");
+        }
+        else if(feedback.length <20)
+        {
+            alert("Feedback Must be More Than 10 Words");
+        }
+        else
+        {
+            window.location.href ="thanks.html";
+        }
+    }
+    </script>
+</body>
+</html>

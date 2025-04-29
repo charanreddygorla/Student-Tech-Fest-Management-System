@@ -1,0 +1,49 @@
+body{
+  background-image: url("premium-gold-lines-abstract-black-background_277819-3815.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.a {
+  border-radius: 50%;
+}
+
+.papa {
+  border-radius: 50%;
+}
+
+.papa1 {
+  border-radius: 50%;
+}
+
+.a:hover {
+  cursor:pointer;
+  transform: scale(1.2);
+}
+
+.papa:hover {
+  cursor:pointer;
+  transform: scale(1.2);
+
+}
+
+.papa1:hover {
+  cursor:pointer;
+  transform: scale(1.2);
+}
+.bigger{
+  transform: scale(1.2);
+  box-shadow: 2px 2px 20px gold;
+
+}
+
+p {
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: medium;
+  color: gold;
+}
+h1{
+  color: gold;
+}
